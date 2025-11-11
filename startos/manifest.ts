@@ -32,16 +32,16 @@ export const manifest = setupManifest({
     arch: architectures,
   },
   alerts: {
-    install: 
+    install:
       "Newt requires Pangolin credentials to function. After installation, use the 'Configure Pangolin Connection' action to set up your Client ID, Secret, and Endpoint from your Pangolin dashboard.",
     update: null,
-    uninstall: 
+    uninstall:
       "Uninstalling Newt will remove all WireGuard tunnels and disconnect from Pangolin. Your credentials will be deleted.",
-    restore: 
+    restore:
       "Newt credentials have been restored from backup. The service will attempt to reconnect to Pangolin automatically. Check the service logs to verify connection status.",
-    start: 
+    start:
       "Before starting, ensure your Newt client is enabled and active in the Pangolin dashboard. If not configured, use the 'Configure Pangolin Connection' action first.",
-    stop: 
+    stop:
       "Stopping Newt will close all active WireGuard tunnels and disconnect from Pangolin. Your configured credentials will be preserved.",
   },
   dependencies: {},

@@ -2,7 +2,10 @@
 
 ## About
 
-Newt is a fully userspace WireGuard tunnel client that connects to [Pangolin](https://pangolin.net/), enabling secure access to your services through encrypted WireGuard tunnels without managing complex networking configurations.
+Newt is a fully userspace WireGuard tunnel client that connects to
+[Pangolin](https://pangolin.net/), enabling secure access to your services
+through encrypted WireGuard tunnels without managing complex networking
+configurations.
 
 ## Prerequisites
 
@@ -12,11 +15,13 @@ Before using Newt, you must:
 2. Access to the Pangolin dashboard
 3. Create a Newt client in your Pangolin dashboard
 
-Visit the [Pangolin Documentation](https://docs.pangolin.net/) for account setup and detailed information.
+Visit the [Pangolin Documentation](https://docs.pangolin.net/) for account setup
+and detailed information.
 
 ## Initial Setup
 
-When you first install Newt, it will **not** connect automatically. Follow these steps to configure and connect:
+When you first install Newt, it will **not** connect automatically. Follow these
+steps to configure and connect:
 
 ### Step 1: Prepare Pangolin Credentials
 
@@ -26,7 +31,8 @@ When you first install Newt, it will **not** connect automatically. Follow these
 4. Copy the following credentials:
    - **Client ID** - Unique identifier for this client
    - **Client Secret** - Authentication secret (keep private!)
-   - **Endpoint URL** - Your Pangolin server URL (e.g., `https://pangolin.riginode.xyz`)
+   - **Endpoint URL** - Your Pangolin server URL (e.g.,
+     `https://pangolin.riginode.xyz`)
 
 ### Step 2: Configure Newt on StartOS
 
@@ -49,18 +55,22 @@ After the service restarts, verify the connection was successful:
    - **Pangolin Connection**: Shows connection attempt status
 
 2. **Check Service Logs** for detailed connection status:
-   - **Success**: Look for `Tunnel connection to server established successfully!`
+   - **Success**: Look for
+     `Tunnel connection to server established successfully!`
    - **Failure**: Look for error messages like:
-     - `No newt found with that newtId` - Client not enabled in Pangolin dashboard
+     - `No newt found with that newtId` - Client not enabled in Pangolin
+       dashboard
      - `Failed to get token` - Check credentials are correct
 
-> **Note:** Newt continues running even if connection fails (it retries automatically). Always check logs for actual connection status.
+> **Note:** Newt continues running even if connection fails (it retries
+> automatically). Always check logs for actual connection status.
 
 ## Configuration Management
 
 ### Viewing Current Configuration
 
 To see your current settings:
+
 1. Go to **Actions** → **Configure Pangolin Connection**
 2. The form will be pre-filled with existing values
 3. Client Secret will be masked for security
@@ -68,6 +78,7 @@ To see your current settings:
 ### Updating Credentials
 
 To change your Pangolin credentials:
+
 1. Go to **Actions** → **Configure Pangolin Connection**
 2. Modify the desired fields (Client ID, Secret, or Endpoint)
 3. Click **Execute**
@@ -82,13 +93,16 @@ To change your Pangolin credentials:
 
 ## Monitoring
 
-Newt exposes Prometheus metrics on port 2112 for monitoring systems. These metrics include:
+Newt exposes Prometheus metrics on port 2112 for monitoring systems. These
+metrics include:
+
 - Connection status
 - Data transfer statistics
 - Active tunnels
 - Performance metrics
 
-Metrics are not intended for direct user access but can be scraped by monitoring tools.
+Metrics are not intended for direct user access but can be scraped by monitoring
+tools.
 
 ## Troubleshooting
 
@@ -97,6 +111,7 @@ Metrics are not intended for direct user access but can be scraped by monitoring
 **Symptom**: Service immediately stops after starting
 
 **Solutions**:
+
 - Check if you've run the "Configure Pangolin Connection" action
 - Verify `config.json` exists in the service volume
 - Review service logs for specific error messages
@@ -104,14 +119,16 @@ Metrics are not intended for direct user access but can be scraped by monitoring
 ### Connection Failures
 
 **Error**: `No newt found with that newtId`
+
 - **Cause**: Client not registered or not enabled in Pangolin
-- **Solution**: 
+- **Solution**:
   1. Log in to your Pangolin dashboard
   2. Find your Newt client
   3. Ensure it's enabled/activated
   4. Verify the Client ID matches exactly
 
 **Error**: `Failed to get token`
+
 - **Cause**: Invalid credentials or endpoint unreachable
 - **Solution**:
   1. Verify Client Secret is correct
@@ -123,9 +140,11 @@ Metrics are not intended for direct user access but can be scraped by monitoring
 
 **Symptom**: Newt Service shows as running, but tunnels don't work
 
-**Explanation**: Newt continues running even when connection fails (it retries automatically)
+**Explanation**: Newt continues running even when connection fails (it retries
+automatically)
 
 **Solution**:
+
 1. Open service logs
 2. Look for connection error messages
 3. Address specific errors (see Connection Failures above)
@@ -134,6 +153,7 @@ Metrics are not intended for direct user access but can be scraped by monitoring
 ### Updating After Pangolin Changes
 
 If you regenerate credentials in Pangolin:
+
 1. Use "Configure Pangolin Connection" action
 2. Enter new credentials
 3. Service restarts automatically
@@ -141,7 +161,8 @@ If you regenerate credentials in Pangolin:
 
 ## Security Best Practices
 
-- **Client Secret**: Never share your Client Secret. It's equivalent to a password.
+- **Client Secret**: Never share your Client Secret. It's equivalent to a
+  password.
 - **Credential Storage**: Secrets are stored encrypted within the service volume
 - **UI Masking**: Client Secret is always masked in the UI
 - **Log Security**: Only first 10 characters of Client ID appear in logs
@@ -157,9 +178,12 @@ If you regenerate credentials in Pangolin:
 ## Support
 
 For issues specific to:
-- **Newt functionality**: [Newt GitHub Issues](https://github.com/fosrl/newt/issues)
+
+- **Newt functionality**:
+  [Newt GitHub Issues](https://github.com/fosrl/newt/issues)
 - **Pangolin service**: [Pangolin Support](https://docs.pangolin.net/)
-- **StartOS packaging**: [newt-startos Issues](https://github.com/gillohner/newt-startos/issues)
+- **StartOS packaging**:
+  [newt-startos Issues](https://github.com/gillohner/newt-startos/issues)
 
 2. **Verify Pangolin Server**: Make sure your Pangolin server is running and
    accessible

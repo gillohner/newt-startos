@@ -43,46 +43,55 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
           display: "Newt Service",
           fn: async () => {
             // Check if metrics port is listening (indicates newt is running)
-            const portCheck = await sdk.healthCheck.checkPortListening(effects, metricsPort, {
-              successMessage: "Newt is running",
-              errorMessage: "Newt is starting",
-            })
+            const portCheck = await sdk.healthCheck.checkPortListening(
+              effects,
+              metricsPort,
+              {
+                successMessage: "Newt is running",
+                errorMessage: "Newt is starting",
+              },
+            );
 
-            return portCheck
+            return portCheck;
           },
         },
         requires: [],
       };
-    })
-    
+    });
+
   return daemons.addHealthCheck("connection-status", {
     ready: {
       display: "Pangolin Connection",
       fn: async () => {
         try {
-          const config = await newtConfigFile.read().const(effects)
-          
-          if (!config || !config.clientId || !config.clientSecret || !config.endpoint) {
+          const config = await newtConfigFile.read().const(effects);
+
+          if (
+            !config || !config.clientId || !config.clientSecret ||
+            !config.endpoint
+          ) {
             return {
-              message: "Not Configured - Use 'Configure Pangolin Connection' action",
+              message:
+                "Not Configured - Use 'Configure Pangolin Connection' action",
               result: "failure" as const,
-            }
+            };
           }
 
           // Newt stays running even if connection fails, so we can't detect
           // connection errors here. Users should check logs for actual status.
           return {
-            message: `Configured for ${config.endpoint} - Check logs for connection status`,
+            message:
+              `Configured for ${config.endpoint} - Check logs for connection status`,
             result: "success" as const,
-          }
+          };
         } catch (error) {
           return {
             message: "Checking configuration...",
             result: "starting" as const,
-          }
+          };
         }
       },
     },
     requires: ["primary"],
-  })
+  });
 });

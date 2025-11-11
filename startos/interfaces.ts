@@ -9,4 +9,3 @@ export const setInterfaces = sdk.setupInterfaces(async ({ effects }) => {
   // 3. Service logs
   return [];
 });
-

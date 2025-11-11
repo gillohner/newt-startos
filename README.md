@@ -6,11 +6,15 @@
 
 This repository packages [Newt](https://github.com/fosrl/newt) for StartOS.
 
-Newt is a fully userspace WireGuard tunnel client and TCP/UDP proxy that securely exposes private resources controlled by [Pangolin](https://pangolin.net/).
+Newt is a fully userspace WireGuard tunnel client and TCP/UDP proxy that
+securely exposes private resources controlled by
+[Pangolin](https://pangolin.net/).
 
 ## Dependencies
 
-- **Pangolin Instance**: You must have a [Pangolin](https://pangolin.net/) instance or dashboard access to another instance to obtain client credentials. See [Pangolin Documentation](https://docs.pangolin.net/) for account setup.
+- **Pangolin Instance**: You must have a [Pangolin](https://pangolin.net/)
+  instance or dashboard access to another instance to obtain client credentials.
+  See [Pangolin Documentation](https://docs.pangolin.net/) for account setup.
 
 ## Documentation
 
