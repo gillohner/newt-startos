@@ -29,11 +29,11 @@ export const main = sdk.setupMain(async ({ effects, started }) => {
       "newt-sub",
     );
 
-    // Environment variables for Newt configuration
+    // Environment variables for Newt configuration - replace with your own as needed
     const environment: Record<string, string> = {
       RUST_LOG: "info",
-      NEWT_ID: "skul6zhqattftd1",
-      NEWT_SECRET: "fkd3msluh4xs2fhhf4h3z787hln45hd1xxtpqkbhh7jemgyd",
+      NEWT_ID: "cu1tk7ub29hhrqe",
+      NEWT_SECRET: "vmmrnmt37emj6wvbe254leu6qceycpl2oi6vjoectf5vk9ub",
       PANGOLIN_ENDPOINT: "https://pangolin.riginode.xyz",
       LOG_LEVEL: "info",
     };
