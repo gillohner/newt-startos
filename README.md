@@ -2,31 +2,19 @@
   <img src="icon.png" alt="Newt Logo" width="21%">
 </p>
 
-## Newt for StartOS
+# Newt for StartOS
 
-A WireGuard tunnel client for Pangolin on StartOS.
+This repository packages [Newt](https://github.com/fosrl/newt) for StartOS.
 
-**Newt** is a fully userspace WireGuard tunnel client and TCP/UDP proxy that
-securely exposes private resources controlled by
-[Pangolin](https://pangolin.net/). This repository creates the `.s9pk` package
-that is installed to run Newt on
-[StartOS](https://github.com/Start9Labs/start-os/).
+Newt is a fully userspace WireGuard tunnel client and TCP/UDP proxy that securely exposes private resources controlled by [Pangolin](https://pangolin.net/).
 
-## WARNING: Development Configurations
+## Dependencies
 
-At the moment we are not using StartOS Actions to manage Newt's configuration.
-Instead, configuration must be done manually by editing the `config.json` file
-in the service volume after installation.
+- **Pangolin Instance**: You must have a [Pangolin](https://pangolin.net/) instance or dashboard access to another instance to obtain client credentials. See [Pangolin Documentation](https://docs.pangolin.net/) for account setup.
 
-## Prerequisites
+## Documentation
 
-To use Newt, you must have:
-
-- A [Pangolin](https://pangolin.net/) account and server
-- Pangolin resource credentials (ID, Secret, Endpoint)
-
-See the [Pangolin Documentation](https://docs.pangolin.net/) for setup
-instructions.
+Service documentation can be found in the [docs](./docs) directory.
 
 ## Building from source
 
