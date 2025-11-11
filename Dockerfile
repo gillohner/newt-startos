@@ -30,10 +30,10 @@ RUN cat > /usr/local/bin/start-newt.sh << 'EOF'
 set -e
 
 echo "Starting Newt..."
-echo "Connecting to Pangolin at $PANGOLIN_ENDPOINT with client ID: ${NEWT_ID:0:8}..."
+echo "Connecting to Pangolin at https://pangolin.riginode.xyz with client ID: km7i463f..."
 
-# Start Newt using environment variables
-exec newt --metrics :2112 --log-level "$LOG_LEVEL"
+# Start Newt with hardcoded configuration
+exec newt -id "" -secret "" -endpoint "" -metrics-admin-addr :2112 -log-level "info"
 EOF
 
 RUN chmod +x /usr/local/bin/start-newt.sh
